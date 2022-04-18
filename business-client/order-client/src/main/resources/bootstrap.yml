@@ -1,0 +1,33 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: openfeign-order
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+      discovery:
+        namespace: public
+        password: nacos
+        server-addr: 127.0.0.1:8848
+        username: nacos
+
+logging:
+  level:
+    com:
+      aystzh:
+        cloud:
+          business:
+            client:
+              service:
+                StockOpenFeignService: debug
+
+#修改OpenFeign默认调用所有服务的默认超时时间
+# 配置openfeign默认超时时间  默认时间 单位毫秒
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

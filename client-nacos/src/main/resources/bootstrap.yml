@@ -1,0 +1,24 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: service-nacosconfig
+  cloud:
+    nacos:
+      config:
+        contextPath: /nacos
+        password: nacos
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        file-extension: yaml
+        extension-configs:
+          - data-id: service-config-common01.yaml
+          - data-id: service-config-common02.yaml
+            group: GLOBALE_GROUP
+          - data-id: service-config-common03.yaml
+            group: REFRESH_GROUP
+            refresh: true
+        shared-configs:
+          - data-id: common.yaml
+            group: GROUP_APP1
+            refresh: true
