@@ -19,6 +19,9 @@ import javax.annotation.Resource;
 @RequestMapping("/order")
 public class OrderController {
 
+    private  String userName;
+    private String total_number;
+
     @Autowired
     private RestTemplate restTemplate;
 
@@ -35,6 +38,7 @@ public class OrderController {
      */
     @GetMapping("/addOrder")
     public String addOrder() {
+
         System.out.println("订单新增成功");
         System.out.println("orderPrice:" + orderPrice);
         //调用库存扣减
