@@ -15,6 +15,8 @@
         <module>business-client</module>
     </modules>
 
+
+
     <properties>
         <!-- java版本 -->
         <java.version>1.8</java.version>
@@ -75,11 +77,86 @@
         </dependencies>
     </dependencyManagement>
 
+
+    <profiles>
+
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.cloud.config.nacos.addr>127.0.0.1:8848</spring.cloud.config.nacos.addr>
+                <spring.cloud.config.nacos.username>nacos</spring.cloud.config.nacos.username>
+                <spring.cloud.config.nacos.password>nacos</spring.cloud.config.nacos.password>
+                <spring.cloud.config.nacos.group>DEVELOP_ZH_GROUP</spring.cloud.config.nacos.group>
+                <spring.cloud.config.nacos.namespace>ed3dd1a4-cd15-4d75-b762-38220bab80fe</spring.cloud.config.nacos.namespace>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>staging</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <spring.cloud.config.nacos.addr>127.0.0.1:8848</spring.cloud.config.nacos.addr>
+                <spring.cloud.config.nacos.username>nacos</spring.cloud.config.nacos.username>
+                <spring.cloud.config.nacos.password>nacos</spring.cloud.config.nacos.password>
+                <spring.cloud.config.nacos.group>DEVELOP_ZH_GROUsP</spring.cloud.config.nacos.group>
+                <spring.cloud.config.nacos.namespace>561913a3-6bbb-4a9c-9d80-71bdb5001732</spring.cloud.config.nacos.namespace>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <spring.cloud.config.nacos.addr>127.0.0.1:8848</spring.cloud.config.nacos.addr>
+                <spring.cloud.config.nacos.username>nacos</spring.cloud.config.nacos.username>
+                <spring.cloud.config.nacos.password>nacos</spring.cloud.config.nacos.password>
+                <spring.cloud.config.nacos.group>DEVELOP_ZH_GROUP</spring.cloud.config.nacos.group>
+                <spring.cloud.config.nacos.namespace>ed3dd1a4-cd15-4d75-b762-38220bab80fe</spring.cloud.config.nacos.namespace>
+            </properties>
+        </profile>
+
+
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--copy active profiles -->
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/bootstrap.yml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>target/classes</outputDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>

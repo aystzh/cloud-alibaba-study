@@ -6,12 +6,19 @@ spring:
   cloud:
     nacos:
       config:
+        contextPath: /nacos
         file-extension: yaml
+        namespace: @spring.cloud.config.nacos.namespace@
+        group: @spring.cloud.config.nacos.group@
+        username: @spring.cloud.config.nacos.username@
+        password: @spring.cloud.config.nacos.password@
+        server-addr: @spring.cloud.config.nacos.addr@
       discovery:
-        namespace: public
-        password: nacos
-        server-addr: 127.0.0.1:8848
-        username: nacos
+        namespace: @spring.cloud.config.nacos.namespace@
+        group: @spring.cloud.config.nacos.group@
+        username: @spring.cloud.config.nacos.username@
+        password: @spring.cloud.config.nacos.password@
+        server-addr: @spring.cloud.config.nacos.addr@
 
 logging:
   level:

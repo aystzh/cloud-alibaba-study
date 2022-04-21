@@ -39,7 +39,7 @@ public class ServiceNacosconfigApplication {
         System.err.println("common.app.name :" + commonUserName + "; common.app.version: " + commonAppVersion);
 
 
-       /* //动态刷新
+        //动态刷新
         while(true) {
             //当动态配置刷新时，会更新到 Enviroment中，因此这里每隔一秒中从Enviroment中获取配置
             String userNameD = applicationContext.getEnvironment().getProperty("user.name");
@@ -60,6 +60,6 @@ public class ServiceNacosconfigApplication {
             String userNameD03 = applicationContext.getEnvironment().getProperty("public03.name");
             String userAge0D03 = applicationContext.getEnvironment().getProperty("public03.age");
             System.err.println("user name03 :" + userNameD03 + "; age03: " + userAge0D03);
-        }*/
+        }
     }
 }

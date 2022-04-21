@@ -19,9 +19,6 @@ import javax.annotation.Resource;
 @RequestMapping("/order")
 public class OrderController {
 
-    private  String userName;
-    private String total_number;
-
     @Autowired
     private RestTemplate restTemplate;
 
