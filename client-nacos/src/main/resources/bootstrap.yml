@@ -22,3 +22,4 @@ spring:
           - data-id: common.yaml
             group: GROUP_APP1
             refresh: true
+        refresh-enabled: true
