@@ -120,6 +120,12 @@ spring:
             username: @spring.cloud.config.nacos.username@
 ```
 
+- maven命令jar包命令指定profile
+
+```java
+mvn clean package -P local
+```
+
 ### 4.动态刷新获取nacos配置文件的数据
 
 - 使用全局的nacos自带配置参数：
