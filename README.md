@@ -129,6 +129,18 @@ spring:
   cloud:
     nacos:
       config:
+        refresh-enabled: true
+```
+
+- 在需要支持动态刷新获取nacos值的controller上使用@RefreshScope注解
+
+### 5.nacos提取公用配置到一个config文件的两种方法
+
+```yaml
+spring:
+  cloud:
+    nacos:
+      config:
         extension-configs:
           - data-id: service-config-common03.yaml
             group: REFRESH_GROUP
@@ -137,7 +149,4 @@ spring:
           - data-id: common.yaml
             group: GROUP_APP1
             refresh: true
-        refresh-enabled: true
 ```
-
-- 在需要支持动态刷新获取nacos值的controller上使用@RefreshScope注解
