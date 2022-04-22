@@ -12,7 +12,7 @@ Spring Cloud Alibaba各个组件学习
 
 ## nacos环境搭建
 
-PS:相关nacos版本下载、启动步骤可以参照 [nacos官方文档](https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config),相关源码见[链接](http://10.0.47.78/Smart-Application-component-platform/spring-cloud-basic-components/tree/main/code/spring-cloud-alibaba-study)
+PS:相关nacos版本下载、启动步骤可以参照 [nacos官方文档](https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config),相关学习源码见[链接](https://github.com/aystzh/spring-cloud-alibaba-study)
 
 ### 1.nacos-client搭建
 
